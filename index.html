@@ -1927,49 +1927,61 @@
     <div class="step-label">STEP 04</div>
     <div class="step-title">Install the <span class="highlight">Claude Code Extension</span></div>
 
+    <!-- PHASE A -->
+    <p style="color:var(--orange); font-family:'Press Start 2P',monospace; font-size:9px; letter-spacing:3px; margin-bottom:12px; margin-top:4px;">OPEN VS CODE</p>
+
     <div class="instruction">
       <span class="num">1</span>
-      Open <strong>VS Code</strong> — the first time it opens there will be an onboarding screen, you can just mark it as done.
+      Open <strong>VS Code</strong>. If it's your first time, you'll see an onboarding screen — just skip it or mark it as done.
     </div>
+
+    <div class="warn-box">
+      <div class="warn-label">⚠ HEADS UP</div>
+      You'll see a built-in AI chat on the right side of VS Code. This is <strong>NOT</strong> Claude Code — it's Microsoft's default assistant. Ignore it for now.
+    </div>
+
+    <!-- PHASE B -->
+    <p style="color:var(--orange); font-family:'Press Start 2P',monospace; font-size:9px; letter-spacing:3px; margin-bottom:12px; margin-top:24px;">FIND & INSTALL</p>
 
     <div class="instruction">
       <span class="num">2</span>
-      You'll notice there is already a built-in AI assistant on the right-hand side — this is <strong>NOT</strong> Claude Code. Ignore it.
+      On the left sidebar, click the <strong>four squares icon</strong> (it looks like building blocks). This opens the <strong>Extensions Marketplace</strong>.
     </div>
 
     <div class="instruction">
       <span class="num">3</span>
-      On the left sidebar, click the <strong>four squares icon</strong> — this is the <strong>Extensions Marketplace</strong>.
+      Search for <strong>"Claude Code"</strong>. You'll see multiple results — look for the one by <span style="color:var(--orange); font-weight:bold;">Anthropic</span> with a <strong>blue verification tick</strong> next to the name. That's the official one.
     </div>
 
     <div class="instruction">
       <span class="num">4</span>
-      Search for <strong>"Claude Code"</strong>. You'll get multiple results — make sure you select the official one from <span style="color:var(--orange);">Anthropic</span>, identified by the <strong>blue verification tick</strong> and the developer name "Anthropic".
-    </div>
-
-    <div class="instruction">
-      <span class="num">5</span>
-      Click <strong>Install</strong>. It will ask if you trust the publisher — click <strong>Yes</strong> and install.
-    </div>
-
-    <div class="instruction">
-      <span class="num">6</span>
-      A "Getting Started with Claude Code" screen will appear — you can mark it as done. Close the Extensions Marketplace by toggling the sidebar.
-    </div>
-
-    <div class="instruction">
-      <span class="num">7</span>
-      You'll now see two things: a <strong style="color:var(--orange);">Claude symbol</strong> on the left sidebar and a new <strong>Claude Code tab</strong> on the right-hand side chat panel. Click the Claude Code tab on the right.
-    </div>
-
-    <div class="tip-box">
-      <div class="tip-label">PRO TIP</div>
-      Right-click the original built-in VS Code chat and select <strong>"Hide Chat"</strong> so Claude Code is always visible on the right side. You can toggle it using the secondary menu.
+      Click <strong>Install</strong>. When it asks if you trust the publisher, click <strong>Yes</strong>.
     </div>
 
     <div class="task-check" onclick="toggleCheck(this, 'extension')">
       <div class="checkbox"></div>
-      <div class="label">Claude Code extension is installed and visible in VS Code</div>
+      <div class="label">Claude Code extension is installed</div>
+    </div>
+
+    <!-- PHASE C -->
+    <p style="color:var(--orange); font-family:'Press Start 2P',monospace; font-size:9px; letter-spacing:3px; margin-bottom:12px; margin-top:24px;">SET UP YOUR VIEW</p>
+
+    <div class="instruction">
+      <span class="num">5</span>
+      A "Getting Started" screen will pop up — just close it. Then close the Extensions panel by clicking the same four-squares icon again.
+    </div>
+
+    <div class="instruction">
+      <span class="num">6</span>
+      You should now see two new things:<br>
+      <span style="color:var(--orange);">&#9632;</span> A <strong>Claude icon</strong> on the left sidebar<br>
+      <span style="color:var(--orange);">&#9632;</span> A <strong>Claude Code tab</strong> in the right-side chat panel<br>
+      <span style="margin-top:6px; display:inline-block;">Click the <strong>Claude Code tab on the right</strong> — that's where you'll chat with Claude.</span>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">CLEAN UP</div>
+      To get rid of the default Microsoft chat: right-click it and select <strong>"Hide Chat"</strong>. This keeps Claude Code front and center whenever you open VS Code.
     </div>
   </div>
 

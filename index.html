@@ -1296,6 +1296,78 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
+  /* ── DOWNLOAD LINK BUTTON ── */
+  .download-link {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    padding: 22px 30px;
+    background: rgba(255,106,0,0.06);
+    border: 2px solid var(--orange);
+    border-radius: 6px;
+    color: var(--orange);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(255,106,0,0.1);
+  }
+
+  .download-link:hover {
+    background: var(--orange);
+    color: var(--black);
+    box-shadow: 0 0 30px rgba(255,106,0,0.4), 0 0 60px rgba(255,106,0,0.15);
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .download-link:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .download-link .link-arrow {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s;
+  }
+
+  .download-link:hover .link-arrow {
+    transform: translateX(6px);
+  }
+
+  .download-link .link-sub {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-dim);
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  .download-link:hover .link-sub {
+    color: var(--black);
+    opacity: 0.7;
+  }
+
+  body.boring .download-link {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 2px solid #ff6a00;
+    letter-spacing: 0;
+  }
+  body.boring .download-link:hover {
+    box-shadow: 0 4px 20px rgba(255,106,0,0.25);
+    transform: translateY(-2px);
+  }
+  body.boring .download-link .link-sub {
+    color: #888;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
   /* ── BONUS LEVEL FLASH ── */
   .bonus-flash {
     position: fixed;
@@ -1754,9 +1826,14 @@
     <div class="step-label">STEP 01</div>
     <div class="step-title">Install <span class="highlight">Visual Studio Code</span></div>
 
+    <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="download-link">
+      DOWNLOAD VS CODE <span class="link-arrow">→</span>
+      <span class="link-sub">code.visualstudio.com</span>
+    </a>
+
     <div class="instruction">
       <span class="num">1</span>
-      Go to <span style="color:var(--orange);">code.visualstudio.com</span> and download the version for your operating system.
+      Download the version for your operating system from the link above.
     </div>
 
     <div class="instruction">
@@ -1788,18 +1865,18 @@
     <div class="step-label">STEP 02</div>
     <div class="step-title">Install <span class="highlight">Node.js</span></div>
 
-    <div class="instruction">
-      <span class="num">1</span>
-      Go to <span style="color:var(--orange);">nodejs.org</span>
-    </div>
+    <a href="https://nodejs.org" target="_blank" rel="noopener" class="download-link">
+      DOWNLOAD NODE.JS <span class="link-arrow">→</span>
+      <span class="link-sub">nodejs.org</span>
+    </a>
 
     <div class="instruction">
-      <span class="num">2</span>
+      <span class="num">1</span>
       Click <strong>"Get Node.js"</strong> and select your operating system (it should auto-detect).
     </div>
 
     <div class="instruction">
-      <span class="num">3</span>
+      <span class="num">2</span>
       Download the installer and install it like any normal app.
     </div>
 
@@ -1819,18 +1896,18 @@
     <div class="step-label">STEP 03</div>
     <div class="step-title">Install <span class="highlight">Python</span></div>
 
-    <div class="instruction">
-      <span class="num">1</span>
-      Go to <span style="color:var(--orange);">python.org</span>
-    </div>
+    <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="download-link">
+      DOWNLOAD PYTHON <span class="link-arrow">→</span>
+      <span class="link-sub">python.org/downloads</span>
+    </a>
 
     <div class="instruction">
-      <span class="num">2</span>
+      <span class="num">1</span>
       Click on <strong>Downloads</strong> and download the version for your operating system.
     </div>
 
     <div class="instruction">
-      <span class="num">3</span>
+      <span class="num">2</span>
       Follow the prompts and install like any normal app.
     </div>
 
@@ -2236,14 +2313,12 @@ function goToPage(target, direction) {
       addXP(25);
     }
 
-    // Trigger CTA feature animations
+    // Trigger bonus flash + CTA feature animations when arriving at CTA page
     if (target === 7) {
+      if (!bonusFlashShown && !boringMode) {
+        triggerBonusFlash();
+      }
       animateCTAFeatures();
-    }
-
-    // Trigger bonus flash when arriving at CTA from page 7
-    if (target === 8 && !bonusFlashShown && !boringMode) {
-      triggerBonusFlash();
     }
 
     // Trigger final page animation

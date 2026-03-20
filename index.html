@@ -1703,7 +1703,7 @@
 </div>
 
 <!-- STEP COUNTER -->
-<div class="step-counter" id="stepCounter">STEP 0 / 8</div>
+<div class="step-counter" id="stepCounter">STEP 0 / 6</div>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
@@ -1749,37 +1749,29 @@
     </div>
   </div>
 
-  <!-- PAGE 1: PREREQUISITES -->
+  <!-- PAGE 1: INSTALL VS CODE -->
   <div class="page" id="page-1">
     <div class="step-label">STEP 01</div>
-    <div class="step-title">Check Your <span class="highlight">Prerequisites</span></div>
+    <div class="step-title">Install <span class="highlight">Visual Studio Code</span></div>
 
-    <p style="color:var(--text-dim); margin-bottom: 20px; line-height: 1.7; font-size: 13px;">
-      Before we dive in, make sure your system is ready. Check off each item below.
-    </p>
-
-    <div class="task-check" onclick="toggleCheck(this, 'prereq')">
-      <div class="checkbox"></div>
-      <div class="label"><strong>VS Code installed</strong> — version 1.96 or newer. Download from <span style="color:var(--orange);">code.visualstudio.com</span></div>
+    <div class="instruction">
+      <span class="num">1</span>
+      Go to <span style="color:var(--orange);">code.visualstudio.com</span> and download the version for your operating system.
     </div>
 
-    <div class="task-check" onclick="toggleCheck(this, 'prereq')">
-      <div class="checkbox"></div>
-      <div class="label"><strong>Node.js installed</strong> — version 18+ required. Download from <span style="color:var(--orange);">nodejs.org</span></div>
+    <div class="instruction">
+      <span class="num">2</span>
+      Install it like any normal application — run the installer and follow the prompts.
     </div>
 
-    <div class="task-check" onclick="toggleCheck(this, 'prereq')">
-      <div class="checkbox"></div>
-      <div class="label"><strong>Anthropic account ready</strong> — You'll need an API key or Anthropic login. Sign up at <span style="color:var(--orange);">console.anthropic.com</span></div>
+    <div class="warn-box">
+      <div class="warn-label">⚠ MAC USERS</div>
+      VS Code downloads as a <strong>.zip file</strong> which unzips into an application file. It does <strong>NOT</strong> automatically move itself to your Applications folder — you need to <strong>manually drag it</strong> into your Applications folder.
     </div>
 
-    <div class="tip-box">
-      <div class="tip-label">PRO TIP</div>
-      Verify Node.js is installed by opening a terminal and running:
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">$ </span>node --version
-        <button class="copy-btn">COPY</button>
-      </div>
+    <div class="task-check" onclick="toggleCheck(this, 'vscode')">
+      <div class="checkbox"></div>
+      <div class="label">VS Code is installed and I can open it</div>
     </div>
 
     <div class="slider-container">
@@ -1791,283 +1783,216 @@
     </div>
   </div>
 
-  <!-- PAGE 2: INSTALL THE EXTENSION -->
+  <!-- PAGE 2: INSTALL NODE.JS -->
   <div class="page" id="page-2">
     <div class="step-label">STEP 02</div>
+    <div class="step-title">Install <span class="highlight">Node.js</span></div>
+
+    <div class="instruction">
+      <span class="num">1</span>
+      Go to <span style="color:var(--orange);">nodejs.org</span>
+    </div>
+
+    <div class="instruction">
+      <span class="num">2</span>
+      Click <strong>"Get Node.js"</strong> and select your operating system (it should auto-detect).
+    </div>
+
+    <div class="instruction">
+      <span class="num">3</span>
+      Download the installer and install it like any normal app.
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">DON'T PANIC</div>
+      You do <strong>not</strong> need to know how to code in JavaScript. Node.js is just needed so Claude Code can run and test any JavaScript it generates.
+    </div>
+
+    <div class="task-check" onclick="toggleCheck(this, 'node')">
+      <div class="checkbox"></div>
+      <div class="label">Node.js is installed</div>
+    </div>
+  </div>
+
+  <!-- PAGE 3: INSTALL PYTHON -->
+  <div class="page" id="page-3">
+    <div class="step-label">STEP 03</div>
+    <div class="step-title">Install <span class="highlight">Python</span></div>
+
+    <div class="instruction">
+      <span class="num">1</span>
+      Go to <span style="color:var(--orange);">python.org</span>
+    </div>
+
+    <div class="instruction">
+      <span class="num">2</span>
+      Click on <strong>Downloads</strong> and download the version for your operating system.
+    </div>
+
+    <div class="instruction">
+      <span class="num">3</span>
+      Follow the prompts and install like any normal app.
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">DON'T PANIC</div>
+      Same as Node.js — you don't need to know Python. It's just needed so Claude Code can run and test any Python code it generates.
+    </div>
+
+    <div class="task-check" onclick="toggleCheck(this, 'python')">
+      <div class="checkbox"></div>
+      <div class="label">Python is installed</div>
+    </div>
+  </div>
+
+  <!-- PAGE 4: OPEN VS CODE & INSTALL EXTENSION -->
+  <div class="page" id="page-4">
+    <div class="step-label">STEP 04</div>
     <div class="step-title">Install the <span class="highlight">Claude Code Extension</span></div>
 
     <div class="instruction">
       <span class="num">1</span>
-      Open <strong>VS Code</strong> and make sure it's up to date.
+      Open <strong>VS Code</strong> — the first time it opens there will be an onboarding screen, you can just mark it as done.
     </div>
 
     <div class="instruction">
       <span class="num">2</span>
-      Open the <strong>Extensions panel</strong> using the sidebar icon or the shortcut:
-      <div style="margin-top: 8px;">
-        <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>
-        <span style="color:var(--text-dim); font-size:11px; margin-left: 8px;">(Windows/Linux)</span>
-      </div>
-      <div style="margin-top: 6px;">
-        <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>
-        <span style="color:var(--text-dim); font-size:11px; margin-left: 8px;">(macOS)</span>
-      </div>
+      You'll notice there is already a built-in AI assistant on the right-hand side — this is <strong>NOT</strong> Claude Code. Ignore it.
     </div>
 
     <div class="instruction">
       <span class="num">3</span>
-      In the search bar, type:
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">&gt; </span>Claude Code
-        <button class="copy-btn">COPY</button>
-      </div>
+      On the left sidebar, click the <strong>four squares icon</strong> — this is the <strong>Extensions Marketplace</strong>.
     </div>
 
     <div class="instruction">
       <span class="num">4</span>
-      Find <strong>"Claude Code"</strong> by <span style="color:var(--orange);">Anthropic</span> in the results, then click the <strong>Install</strong> button.
+      Search for <strong>"Claude Code"</strong>. You'll get multiple results — make sure you select the official one from <span style="color:var(--orange);">Anthropic</span>, identified by the <strong>blue verification tick</strong> and the developer name "Anthropic".
     </div>
 
-    <div class="task-check" onclick="toggleCheck(this, 'install')">
-      <div class="checkbox"></div>
-      <div class="label">I've installed the Claude Code extension</div>
+    <div class="instruction">
+      <span class="num">5</span>
+      Click <strong>Install</strong>. It will ask if you trust the publisher — click <strong>Yes</strong> and install.
+    </div>
+
+    <div class="instruction">
+      <span class="num">6</span>
+      A "Getting Started with Claude Code" screen will appear — you can mark it as done. Close the Extensions Marketplace by toggling the sidebar.
+    </div>
+
+    <div class="instruction">
+      <span class="num">7</span>
+      You'll now see two things: a <strong style="color:var(--orange);">Claude symbol</strong> on the left sidebar and a new <strong>Claude Code tab</strong> on the right-hand side chat panel. Click the Claude Code tab on the right.
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">ALTERNATIVE METHOD</div>
-      You can also install it from the command line:
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">$ </span>code --install-extension anthropic.claude-code
-        <button class="copy-btn">COPY</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- PAGE 3: INSTALL CLI -->
-  <div class="page" id="page-3">
-    <div class="step-label">STEP 03</div>
-    <div class="step-title">Install the <span class="highlight">Claude Code CLI</span></div>
-
-    <p style="color:var(--text-dim); margin-bottom: 20px; line-height: 1.7; font-size: 13px;">
-      The VS Code extension uses the Claude Code CLI under the hood. Install it globally with npm:
-    </p>
-
-    <div class="code-block" onclick="copyCode(this)" style="font-size: 15px; padding: 20px 24px;">
-      <span class="prompt">$ </span>npm install -g @anthropic-ai/claude-code
-      <button class="copy-btn">COPY</button>
+      <div class="tip-label">PRO TIP</div>
+      Right-click the original built-in VS Code chat and select <strong>"Hide Chat"</strong> so Claude Code is always visible on the right side. You can toggle it using the secondary menu.
     </div>
 
-    <div class="warn-box">
-      <div class="warn-label">⚠ HEADS UP</div>
-      If you get a <strong>permission error</strong> on macOS/Linux, you may need to prefix with <code style="color:var(--orange);">sudo</code> or fix your npm permissions.
-    </div>
-
-    <div class="instruction">
-      <span class="num">✓</span>
-      Verify the installation worked:
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">$ </span>claude --version
-        <button class="copy-btn">COPY</button>
-      </div>
-    </div>
-
-    <div class="task-check" onclick="toggleCheck(this, 'cli')">
+    <div class="task-check" onclick="toggleCheck(this, 'extension')">
       <div class="checkbox"></div>
-      <div class="label">CLI installed and <code style="color:var(--orange);">claude --version</code> returns a version number</div>
-    </div>
-
-    <div class="toggle-row">
-      <span style="font-size: 13px;">I'm on <strong>macOS / Linux</strong></span>
-      <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
-    </div>
-    <div class="toggle-row">
-      <span style="font-size: 13px;">I'm using a <strong>corporate proxy / VPN</strong></span>
-      <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+      <div class="label">Claude Code extension is installed and visible in VS Code</div>
     </div>
   </div>
 
-  <!-- PAGE 4: AUTHENTICATION -->
-  <div class="page" id="page-4">
-    <div class="step-label">STEP 04</div>
-    <div class="step-title">Authenticate with <span class="highlight">Anthropic</span></div>
-
-    <p style="color:var(--text-dim); margin-bottom: 20px; line-height: 1.7; font-size: 13px;">
-      Time to connect Claude Code to your Anthropic account. You have two options:
-    </p>
-
-    <div class="instruction">
-      <span class="num">A</span>
-      <strong>Browser Login (Recommended)</strong> — Simply open a terminal and run:
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">$ </span>claude
-        <button class="copy-btn">COPY</button>
-      </div>
-      This opens your browser for OAuth login. Follow the prompts and you're in.
-    </div>
-
-    <div class="instruction">
-      <span class="num">B</span>
-      <strong>API Key</strong> — If you prefer, set your API key as an environment variable:
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">$ </span>export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
-        <button class="copy-btn">COPY</button>
-      </div>
-    </div>
-
-    <div class="task-check" onclick="toggleCheck(this, 'auth')">
-      <div class="checkbox"></div>
-      <div class="label">I've authenticated with Anthropic successfully</div>
-    </div>
-
-    <div class="tip-box">
-      <div class="tip-label">ENTERPRISE USERS</div>
-      If your team uses <strong>Amazon Bedrock</strong> or <strong>Google Vertex AI</strong>, Claude Code supports those too. Check your team's documentation for the specific setup.
-    </div>
-
-    <div class="slider-container">
-      <div class="slider-header">
-        <span>SECURITY COMFORT</span>
-        <span class="slider-value" id="secValue">BALANCED</span>
-      </div>
-      <input type="range" min="0" max="2" value="1" oninput="updateSecSlider(this.value)">
-    </div>
-  </div>
-
-  <!-- PAGE 5: OPEN CLAUDE CODE IN VS CODE -->
+  <!-- PAGE 5: CONNECT YOUR ACCOUNT -->
   <div class="page" id="page-5">
     <div class="step-label">STEP 05</div>
-    <div class="step-title">Launch <span class="highlight">Claude Code</span> in VS Code</div>
+    <div class="step-title">Connect Your <span class="highlight">Claude Account</span></div>
+
+    <div class="warn-box">
+      <div class="warn-label">⚠ PAID FEATURE</div>
+      Claude Code requires at minimum the <strong>Pro plan ($20/mo monthly, $17/mo annual)</strong>. Also available on Team and Enterprise plans. Higher plans (Max 5x, Max 20x) give more usage before hitting limits. On Pro, you'll eventually hit a usage limit and need to wait a few hours.
+    </div>
 
     <div class="instruction">
       <span class="num">1</span>
-      Open VS Code and navigate to any <strong>project folder</strong> you want to work on.
+      In the Claude Code panel, select the login option <strong>"Claude AI Subscription"</strong>.
     </div>
 
     <div class="instruction">
       <span class="num">2</span>
-      Open the Claude Code panel using the <strong>Command Palette</strong>:
-      <div style="margin-top: 8px;">
-        <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
-        <span style="color:var(--text-dim); font-size:11px; margin-left: 8px;">(Windows/Linux)</span>
-      </div>
-      <div style="margin-top: 6px;">
-        <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
-        <span style="color:var(--text-dim); font-size:11px; margin-left: 8px;">(macOS)</span>
-      </div>
-      <div style="margin-top: 10px;">Then type:</div>
-      <div class="code-block" onclick="copyCode(this)">
-        <span class="prompt">&gt; </span>Claude Code: Open
-        <button class="copy-btn">COPY</button>
-      </div>
+      It will prompt you to open a website — click <strong>Open</strong>.
     </div>
 
     <div class="instruction">
       <span class="num">3</span>
-      Alternatively, click the <strong style="color:var(--orange);">Claude Code icon</strong> in the VS Code sidebar (it appears after installing the extension).
+      If you are already logged into your Claude account, <strong>select your organization</strong>.
     </div>
 
-    <div class="task-check" onclick="toggleCheck(this, 'launch')">
-      <div class="checkbox"></div>
-      <div class="label">Claude Code panel is open and ready in VS Code</div>
+    <div class="instruction">
+      <span class="num">4</span>
+      Click <strong>Authorize</strong> to give Claude Code access to your Claude account.
+    </div>
+
+    <div class="instruction">
+      <span class="num">5</span>
+      A confirmation page will say <strong>"Build something great — you're all set"</strong>. Close that browser window.
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">SHORTCUT</div>
-      You can also use <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> to toggle the Claude Code panel.
+      <div class="tip-label">DONE</div>
+      Claude Code is now connected to your account and ready to use in VS Code!
+    </div>
+
+    <div class="task-check" onclick="toggleCheck(this, 'auth')">
+      <div class="checkbox"></div>
+      <div class="label">I've authorized Claude Code with my Claude account</div>
     </div>
   </div>
 
-  <!-- PAGE 6: CONFIGURE SETTINGS -->
+  <!-- PAGE 6: OPEN A FOLDER FIRST -->
   <div class="page" id="page-6">
     <div class="step-label">STEP 06</div>
-    <div class="step-title">Configure Your <span class="highlight">Settings</span></div>
+    <div class="step-title">One Final Step <span class="highlight">Before You Prompt</span></div>
 
-    <p style="color:var(--text-dim); margin-bottom: 20px; line-height: 1.7; font-size: 13px;">
-      Tune Claude Code to your liking. These settings can always be changed later.
-    </p>
-
-    <div class="slider-container">
-      <div class="slider-header">
-        <span>AUTO-APPROVE TOOLS</span>
-        <span class="slider-value" id="autoApproveValue">ASK EVERY TIME</span>
-      </div>
-      <input type="range" min="0" max="2" value="0" oninput="updateAutoApprove(this.value)">
-      <p style="font-size:11px; color:var(--text-dim); margin-top:10px; line-height:1.6;">
-        Controls whether Claude auto-runs commands. For beginners, we recommend "Ask every time" so you understand what Claude is doing.
-      </p>
+    <div class="warn-box">
+      <div class="warn-label">⚠ IMPORTANT</div>
+      Do <strong>NOT</strong> start prompting Claude Code immediately. The first thing you must always do is open a dedicated folder to work in.
     </div>
 
-    <div class="toggle-row">
-      <span style="font-size: 13px;">Enable <strong>terminal integration</strong></span>
-      <div class="toggle-switch on" onclick="toggleSwitch(this)"></div>
+    <div class="instruction">
+      <span class="num">1</span>
+      Go to <strong>File → Open Folder</strong> (or use the Open option if visible).
     </div>
 
-    <div class="toggle-row">
-      <span style="font-size: 13px;">Enable <strong>file watcher</strong> for auto-context</span>
-      <div class="toggle-switch on" onclick="toggleSwitch(this)"></div>
+    <div class="instruction">
+      <span class="num">2</span>
+      If starting a new project, <strong>create a new folder</strong> for it. We recommend having a dedicated folder for all your Claude Code projects.
     </div>
 
-    <div class="toggle-row">
-      <span style="font-size: 13px;">Enable <strong>notification sounds</strong></span>
-      <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+    <div class="instruction">
+      <span class="num">3</span>
+      VS Code will ask if you trust the authors of the files — since you're starting fresh, click <strong>"Yes, I trust the authors"</strong>.
     </div>
 
-    <div class="task-check" onclick="toggleCheck(this, 'config')">
-      <div class="checkbox"></div>
-      <div class="label">I've reviewed the settings and I'm happy with my configuration</div>
+    <div class="instruction">
+      <span class="num">4</span>
+      When VS Code opens the folder, it may switch back to the default chat — make sure you <strong>click back on the Claude Code tab</strong> before starting.
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">POWER MOVE</div>
-      Add a <code style="color:var(--cyan);">CLAUDE.md</code> file to your project root to give Claude persistent instructions about your codebase, coding standards, and preferred tools.
-    </div>
-  </div>
-
-  <!-- PAGE 7: FIRST PROMPT -->
-  <div class="page" id="page-7">
-    <div class="step-label">STEP 07</div>
-    <div class="step-title">Send Your <span class="highlight">First Prompt</span></div>
-
-    <p style="color:var(--text-dim); margin-bottom: 20px; line-height: 1.7; font-size: 13px;">
-      You're all set! Time to take Claude Code for a spin. Try one of these starter prompts:
-    </p>
-
-    <div class="code-block" onclick="copyCode(this)" style="margin: 12px 0;">
-      <span style="color:var(--orange);">You → </span>Explain this codebase to me at a high level
-      <button class="copy-btn">COPY</button>
+      <div class="tip-label">YOU'RE READY</div>
+      That's it! You're fully set up. Claude Code is installed, connected, and ready to go. Start prompting and build something amazing.
     </div>
 
-    <div class="code-block" onclick="copyCode(this)" style="margin: 12px 0;">
-      <span style="color:var(--orange);">You → </span>Find and fix any bugs in this project
-      <button class="copy-btn">COPY</button>
-    </div>
-
-    <div class="code-block" onclick="copyCode(this)" style="margin: 12px 0;">
-      <span style="color:var(--orange);">You → </span>Write tests for the main module
-      <button class="copy-btn">COPY</button>
-    </div>
-
-    <div class="code-block" onclick="copyCode(this)" style="margin: 12px 0;">
-      <span style="color:var(--orange);">You → </span>Refactor this function to be more readable
-      <button class="copy-btn">COPY</button>
-    </div>
-
-    <div class="task-check" onclick="toggleCheck(this, 'first')">
+    <div class="task-check" onclick="toggleCheck(this, 'folder')">
       <div class="checkbox"></div>
-      <div class="label">I've sent my first prompt and Claude responded!</div>
+      <div class="label">I've opened a project folder and Claude Code is ready to go!</div>
     </div>
 
     <div class="slider-container">
       <div class="slider-header">
-        <span>AMAZEMENT LEVEL</span>
+        <span>EXCITEMENT LEVEL</span>
         <span class="slider-value" id="amazeValue">🤯 MIND BLOWN</span>
       </div>
       <input type="range" min="0" max="4" value="3" oninput="updateAmazeSlider(this.value)">
     </div>
   </div>
 
-  <!-- PAGE 8: CTA -->
-  <div class="page" id="page-8">
+  <!-- PAGE 7: CTA -->
+  <div class="page" id="page-7">
     <div style="text-align:center; padding: 10px 0;">
       <div class="step-label" style="margin-bottom: 8px; font-size: 11px;">BONUS LEVEL</div>
       <div class="step-title" style="margin-bottom: 28px; font-size: 28px;">Ready to <span class="highlight">Level Up</span> Your Agency?</div>
@@ -2108,8 +2033,8 @@
     </div>
   </div>
 
-  <!-- PAGE 9: COMPLETE -->
-  <div class="page" id="page-9">
+  <!-- PAGE 8: COMPLETE -->
+  <div class="page" id="page-8">
     <div style="text-align:center; padding: 10px 0;">
       <div class="step-label" style="margin-bottom: 20px;">MISSION COMPLETE</div>
 
@@ -2166,7 +2091,7 @@
 <script>
 // ═══════════════════ STATE ═══════════════════
 let currentPage = 0;
-const totalPages = 10;
+const totalPages = 9;
 let xp = 0;
 let completedSteps = new Set();
 let achievements = [];
@@ -2312,7 +2237,7 @@ function goToPage(target, direction) {
     }
 
     // Trigger CTA feature animations
-    if (target === 8) {
+    if (target === 7) {
       animateCTAFeatures();
     }
 
@@ -2384,16 +2309,6 @@ function updateExpSlider(val) {
   document.getElementById('expValue').textContent = expLevels[val];
 }
 
-const secLevels = ['LOCKDOWN', 'BALANCED', 'YOLO MODE'];
-function updateSecSlider(val) {
-  document.getElementById('secValue').textContent = secLevels[val];
-}
-
-const autoLevels = ['ASK EVERY TIME', 'SMART AUTO', 'FULL AUTO'];
-function updateAutoApprove(val) {
-  document.getElementById('autoApproveValue').textContent = autoLevels[val];
-}
-
 const amazeLevels = ['MEH', 'COOL', 'IMPRESSIVE', '🤯 MIND BLOWN', '🚀 TRANSCENDED'];
 function updateAmazeSlider(val) {
   document.getElementById('amazeValue').textContent = amazeLevels[val];
@@ -2424,37 +2339,34 @@ function showToast(msg) {
 
 // ═══════════════════ ACHIEVEMENTS ═══════════════════
 function checkAchievements(group) {
-  const prereqChecks = document.querySelectorAll('#page-1 .task-check.checked').length;
-  const totalPrereq = document.querySelectorAll('#page-1 .task-check').length;
-
-  if (group === 'prereq' && prereqChecks === totalPrereq && !achievements.includes('prereq')) {
-    achievements.push('prereq');
-    showAchievement('🛡️', 'SYSTEM READY', 'All prerequisites checked!');
+  if (group === 'vscode' && !achievements.includes('vscode')) {
+    achievements.push('vscode');
+    showAchievement('💻', 'CODE READY', 'VS Code is locked and loaded!');
   }
 
-  if (group === 'install' && !achievements.includes('install')) {
-    achievements.push('install');
+  if (group === 'node' && !achievements.includes('node')) {
+    achievements.push('node');
+    showAchievement('🟢', 'NODE UNLOCKED', 'Node.js runtime installed!');
+  }
+
+  if (group === 'python' && !achievements.includes('python')) {
+    achievements.push('python');
+    showAchievement('🐍', 'SNAKE CHARMER', 'Python runtime installed!');
+  }
+
+  if (group === 'extension' && !achievements.includes('extension')) {
+    achievements.push('extension');
     showAchievement('⚡', 'EXTENSION LOADED', 'Claude Code extension installed!');
-  }
-
-  if (group === 'cli' && !achievements.includes('cli')) {
-    achievements.push('cli');
-    showAchievement('💻', 'CLI WARRIOR', 'Command line tools ready!');
   }
 
   if (group === 'auth' && !achievements.includes('auth')) {
     achievements.push('auth');
-    showAchievement('🔑', 'ACCESS GRANTED', 'Authentication complete!');
+    showAchievement('🔑', 'ACCESS GRANTED', 'Claude account connected!');
   }
 
-  if (group === 'launch' && !achievements.includes('launch')) {
-    achievements.push('launch');
-    showAchievement('🚀', 'LIFTOFF', 'Claude Code is live in VS Code!');
-  }
-
-  if (group === 'first' && !achievements.includes('first')) {
-    achievements.push('first');
-    showAchievement('🎯', 'FIRST CONTACT', 'You talked to Claude!');
+  if (group === 'folder' && !achievements.includes('folder')) {
+    achievements.push('folder');
+    showAchievement('🚀', 'READY TO LAUNCH', 'You are fully set up!');
   }
 }
 
